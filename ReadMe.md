@@ -1,0 +1,9 @@
+- make clean
+  - removes previous p4 program for DUNE
+- make all
+  - creates the p4 file to json file and moves it into ~/Hangar/build/BMv2/networks/Project
+- running program
+  - HANGARGAMES=/home/vagrant/Hangar/ MODE=interactive networks/Project/run_proj.sh
+- depending on the host
+  -  for readout servers: have receive.py running
+  -  for FE servers: have send.py running
