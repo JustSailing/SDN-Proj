@@ -1,0 +1,256 @@
+hosts:
+  W1:
+    interfaces:
+      - mac: '02:00:00:00:00:02'
+        ip: 10.0.0.1/24
+        port: 1
+    programs:
+      - cmd: "echo 'Hello from W1'"
+        fg: True
+      - cmd: "sudo route add default W1-eth1"
+        fg: True
+      - cmd: "sudo arp -v -i W1-eth1 -s 10.0.0.54 02:00:00:00:00:01"
+        fg: True
+      - cmd: "sudo arp -v -i W1-eth1 -s 10.0.0.2 02:00:00:00:00:04"
+        fg: True
+      - cmd: "sudo arp -v -i W1-eth1 -s 10.0.0.3 02:00:00:00:00:06"
+        fg: True
+      - cmd: "sudo arp -v -i W1-eth1 -s 10.0.0.4 02:00:00:00:00:08"
+        fg: True
+  W2:
+    interfaces:
+      - mac: '02:00:00:00:00:04'
+        ip: 10.0.0.2/24
+        port: 1
+    programs:
+      - cmd: "echo 'Hello from W2'"
+        fg: True
+      - cmd: "sudo route add default W2-eth1"
+        fg: True
+      - cmd: "sudo arp -v -i W2-eth1 -s 10.0.0.54 02:00:00:00:00:03"
+        fg: True
+      - cmd: "sudo arp -v -i W2-eth1 -s 10.0.0.1 02:00:00:00:00:02"
+        fg: True
+      - cmd: "sudo arp -v -i W2-eth1 -s 10.0.0.3 02:00:00:00:00:06"
+        fg: True
+      - cmd: "sudo arp -v -i W2-eth1 -s 10.0.0.4 02:00:00:00:00:08"
+        fg: True
+  W3:
+    interfaces:
+      - mac: '02:00:00:00:00:06'
+        ip: 10.0.0.3/24
+        port: 1
+    programs:
+      - cmd: "echo 'Hello from W3'"
+        fg: True
+      - cmd: "sudo route add default W3-eth1"
+        fg: True
+      - cmd: "sudo arp -v -i W3-eth1 -s 10.0.0.54 02:00:00:00:00:05"
+        fg: True
+      - cmd: "sudo arp -v -i W3-eth1 -s 10.0.0.2 02:00:00:00:00:04"
+        fg: True
+      - cmd: "sudo arp -v -i W3-eth1 -s 10.0.0.1 02:00:00:00:00:02"
+        fg: True
+      - cmd: "sudo arp -v -i W3-eth1 -s 10.0.0.4 02:00:00:00:00:08"
+        fg: True
+  W4:
+    interfaces:
+      - mac: '02:00:00:00:00:08'
+        ip: 10.0.0.4/24
+        port: 1
+    programs:
+      - cmd: "echo 'Hello from W4'"
+        fg: True
+      - cmd: "sudo route add default W4-eth1"
+        fg: True
+      - cmd: "sudo arp -v -i W4-eth1 -s 10.0.0.54 02:00:00:00:00:07"
+        fg: True
+      - cmd: "sudo arp -v -i W4-eth1 -s 10.0.0.2 02:00:00:00:00:04"
+        fg: True
+      - cmd: "sudo arp -v -i W4-eth1 -s 10.0.0.3 02:00:00:00:00:06"
+        fg: True
+      - cmd: "sudo arp -v -i W4-eth1 -s 10.0.0.1 02:00:00:00:00:02"
+        fg: True
+  R1:
+    interfaces:
+      - mac: '02:00:00:00:00:0a'
+        ip: 10.0.0.5/24
+        port: 1
+    programs:
+      - cmd: "echo 'Hello from R1'"
+        fg: True
+      - cmd: "sudo route add default R1-eth1"
+        fg: True
+      - cmd: "sudo arp -v -i R1-eth1 -s 10.0.0.54 02:00:00:00:00:09"
+        fg: True
+      - cmd: "sudo arp -v -i R1-eth1 -s 10.0.0.4 02:00:00:00:00:08"
+        fg: True
+      - cmd: "sudo arp -v -i R1-eth1 -s 10.0.0.2 02:00:00:00:00:04"
+        fg: True
+      - cmd: "sudo arp -v -i R1-eth1 -s 10.0.0.3 02:00:00:00:00:06"
+        fg: True
+      - cmd: "sudo arp -v -i R1-eth1 -s 10.0.0.1 02:00:00:00:00:02"
+        fg: True
+        
+  R2:
+    interfaces:
+      - mac: '02:00:00:00:00:0c'
+        ip: 10.0.0.6/24
+        port: 1
+    programs:
+      - cmd: "echo 'Hello from R2'"
+        fg: True
+      - cmd: "sudo route add default R2-eth1"
+        fg: True
+      - cmd: "sudo arp -v -i R2-eth1 -s 10.0.0.54 02:00:00:00:00:0b"
+        fg: True
+      - cmd: "sudo arp -v -i R2-eth1 -s 10.0.0.4 02:00:00:00:00:08"
+        fg: True
+      - cmd: "sudo arp -v -i R2-eth1 -s 10.0.0.2 02:00:00:00:00:04"
+        fg: True
+      - cmd: "sudo arp -v -i R2-eth1 -s 10.0.0.3 02:00:00:00:00:06"
+        fg: True
+      - cmd: "sudo arp -v -i R2-eth1 -s 10.0.0.1 02:00:00:00:00:02"
+        fg: True
+  R3:
+    interfaces:
+      - mac: '02:00:00:00:00:0e'
+        ip: 10.0.0.7/24
+        port: 1
+    programs:
+      - cmd: "echo 'Hello from R3'"
+        fg: True
+      - cmd: "sudo route add default R3-eth1"
+        fg: True
+      - cmd: "sudo arp -v -i R3-eth1 -s 10.0.0.54 02:00:00:00:00:0d"
+        fg: True
+      - cmd: "sudo arp -v -i R3-eth1 -s 10.0.0.4 02:00:00:00:00:08"
+        fg: True
+      - cmd: "sudo arp -v -i R3-eth1 -s 10.0.0.2 02:00:00:00:00:04"
+        fg: True
+      - cmd: "sudo arp -v -i R3-eth1 -s 10.0.0.3 02:00:00:00:00:06"
+        fg: True
+      - cmd: "sudo arp -v -i R3-eth1 -s 10.0.0.1 02:00:00:00:00:02"
+        fg: True
+  R4:
+    interfaces:
+      - mac: '02:00:00:00:00:1f'
+        ip: 10.0.0.8/24
+        port: 1
+    programs:
+      - cmd: "echo 'Hello from R4'"
+        fg: True
+      - cmd: "sudo route add default R4-eth1"
+        fg: True
+      - cmd: "sudo arp -v -i R4-eth1 -s 10.0.0.54 02:00:00:00:00:0f"
+        fg: True
+      - cmd: "sudo arp -v -i R4-eth1 -s 10.0.0.4 02:00:00:00:00:08"
+        fg: True
+      - cmd: "sudo arp -v -i R4-eth1 -s 10.0.0.2 02:00:00:00:00:04"
+        fg: True
+      - cmd: "sudo arp -v -i R4-eth1 -s 10.0.0.3 02:00:00:00:00:06"
+        fg: True
+      - cmd: "sudo arp -v -i R4-eth1 -s 10.0.0.1 02:00:00:00:00:02"
+        fg: True
+  H1:
+    interfaces:
+      - mac: '02:00:00:00:00:3f'
+        ip: 10.0.0.9/24
+        port: 1
+    programs:
+      - cmd: "echo 'Hello from H1'"
+        fg: True
+      - cmd: "sudo route add default H1-eth1"
+        fg: True
+      - cmd: "sudo arp -v -i H1-eth1 -s 10.0.0.54 02:00:00:00:00:2f"
+        fg: True
+      - cmd: "sudo arp -v -i H1-eth1 -s 10.0.0.4 02:00:00:00:00:08"
+        fg: True
+      - cmd: "sudo arp -v -i H1-eth1 -s 10.0.0.2 02:00:00:00:00:04"
+        fg: True
+      - cmd: "sudo arp -v -i H1-eth1 -s 10.0.0.3 02:00:00:00:00:06"
+        fg: True
+      - cmd: "sudo arp -v -i H1-eth1 -s 10.0.0.1 02:00:00:00:00:02"
+        fg: True
+  M1:
+    interfaces:
+      - mac: '02:00:00:00:00:ff'
+        ip: 10.0.0.55/24
+        port: 1
+    programs:
+      - cmd: "echo 'Hello from M1'"
+        fg: True
+      - cmd: "sudo route add default M1-eth1"
+        fg: True
+      - cmd: "sudo arp -v -i M1-eth1 -s 10.0.0.54 02:00:00:00:00:4f"
+        fg: True
+switches:
+  Sw1:
+    cfg: ../../build/BMv2/networks/4client/4client.json
+    interfaces:
+      - link: W1
+        mac: '02:00:00:00:00:01'
+        port: 1
+      - link: W2
+        mac: '02:00:00:00:00:03'
+        port: 2
+      - link: W3
+        mac: '02:00:00:00:00:05'
+        port: 3
+      - link: W4
+        mac: '02:00:00:00:00:07'
+        port: 4
+      - link: R1
+        mac: '02:00:00:00:00:09'
+        port: 5
+      - link: R2
+        mac: '02:00:00:00:00:0b'
+        port: 6
+      - link: R3
+        mac: '02:00:00:00:00:0d'
+        port: 7
+      - link: R4
+        mac: '02:00:00:00:00:0f'
+        port: 8
+      - link: H1 
+        mac: '02:00:00:00:00:2f'
+        port: 9
+      - link: M1 
+        mac: '02:00:00:00:00:4f'
+        port: 10
+    cmds:
+      #SWITCHING
+      - table_add mac_forwarding mac_forward_set_egress 02:00:00:00:00:02 => 1
+      - table_add mac_forwarding mac_forward_set_egress 02:00:00:00:00:04 => 2
+      - table_add mac_forwarding mac_forward_set_egress 02:00:00:00:00:06 => 3
+      - table_add mac_forwarding mac_forward_set_egress 02:00:00:00:00:08 => 4
+      - table_add mac_forwarding mac_forward_set_egress 02:00:00:00:00:0a => 5
+      - table_add mac_forwarding mac_forward_set_egress 02:00:00:00:00:0c => 6
+      - table_add mac_forwarding mac_forward_set_egress 02:00:00:00:00:0e => 7
+      - table_add mac_forwarding mac_forward_set_egress 02:00:00:00:00:1f => 8
+      - table_add mac_forwarding mac_forward_set_egress 02:00:00:00:00:3f => 9
+      - table_add mac_forwarding mac_forward_set_egress 02:00:00:00:00:ff => 10
+      #ARP
+      - table_add next_hop_arp_lookup arp_lookup_set_addresses 10.0.0.1 => 02:00:00:00:00:02
+      - table_add next_hop_arp_lookup arp_lookup_set_addresses 10.0.0.2 => 02:00:00:00:00:04
+      - table_add next_hop_arp_lookup arp_lookup_set_addresses 10.0.0.3 => 02:00:00:00:00:06
+      - table_add next_hop_arp_lookup arp_lookup_set_addresses 10.0.0.4 => 02:00:00:00:00:08
+      - table_add next_hop_arp_lookup arp_lookup_set_addresses 10.0.0.5 => 02:00:00:00:00:0a
+      - table_add next_hop_arp_lookup arp_lookup_set_addresses 10.0.0.6 => 02:00:00:00:00:0c
+      - table_add next_hop_arp_lookup arp_lookup_set_addresses 10.0.0.7 => 02:00:00:00:00:0e
+      - table_add next_hop_arp_lookup arp_lookup_set_addresses 10.0.0.8 => 02:00:00:00:00:1f
+      - table_add next_hop_arp_lookup arp_lookup_set_addresses 10.0.0.9 => 02:00:00:00:00:3f
+      - table_add next_hop_arp_lookup arp_lookup_set_addresses 10.0.0.55 => 02:00:00:00:00:ff
+      #Egress Part to not multicast to the host that sent the original message
+      - table_add port_lookup port_check 1 => 10.0.0.1
+      - table_add port_lookup port_check 2 => 10.0.0.2
+      - table_add port_lookup port_check 3 => 10.0.0.3
+      - table_add port_lookup port_check 4 => 10.0.0.4
+      - table_add port_lookup port_check 5 => 10.0.0.5
+      - table_add port_lookup port_check 6 => 10.0.0.6
+      - table_add port_lookup port_check 7 => 10.0.0.7
+      - table_add port_lookup port_check 8 => 10.0.0.8
+      - mirroring_add 3 10
+      - mirroring_add_mc 5 1  
+      - help mc_mgrp_create
+
